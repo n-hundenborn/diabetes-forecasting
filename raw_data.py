@@ -1,44 +1,42 @@
-# zip files: https://towardsdatascience.com/dont-download-read-datasets-with-url-in-python-8245a5eaa919
-
-
 import pandas as pd
-from io import BytesIO, TextIOWrapper
-from zipfile import ZipFile
-import urllib.request 
-import requests
-import wget
+import os
+
+FOLDER_PATH = "./data/"
+
+GOOGLE_URL = "gs://brfss_datasets/"
+
+files_to_load = [
+    "2015_formats.json",
+    "2011.csv",
+    "2012.csv",
+    "2013.csv",
+    "2014.csv",
+    "2015.csv"
+]
 
 
-ZIP_URL = "https://www.kaggle.com/datasets/cdc/behavioral-risk-factor-surveillance-system/download?datasetVersionNumber=1"
-ZIP_ORDNER = "archive.zip"
-CSV_FILE = "2011.csv"
+def save_file_from_cloud(file):
+    file_path = FOLDER_PATH + file
+    
+    if os.path.exists(file_path):
+        print("You already have this file. No need to download it again.")
+        return 0
+    print(f"Downloading {file}. This can take some minutes...")
+    df = pd.read_csv(GOOGLE_URL + file)
+    print(f"Finished download. Writing to {file_path}... ")
+    df.to_csv(file_path)
+    print(f"File was saved to {file_path}.")
+    return 1
 
 
-wget.download(ZIP_URL)
-
-
-# r = requests.get(ZIP_URL)
-# print(r.content)
-# z = ZipFile(BytesIO(r.content))
-# z.extractall("/data")
-
-# resp = urllib.request.urlopen(ZIP_URL)
-# # req = requests.get(ZIP_URL)
-
-
-
-# # reading and storing zip file content
-# # zipfile = ZipFile(BytesIO(req.content))
-
-# zipfile = ZipFile(BytesIO(resp.read()), "r")
-
-# directory = "\raw data"
-
-
-# with zipfile as zip_ref:
-#     zip_ref.extract(CSV_FILE,directory)
-# pd.read_csv(directory + CSV_FILE)
-
-
-# # data = TextIOWrapper(zipfile.open(CSV_FILE), encoding = "utf-8")
-# # df = pd.read_csv(data)
+def save_all_files(files=files_to_load):
+    print(f"Get a coffee ;) \nDownloading and saving {len(files)} big files will take at least {2 * len(files)} minutes.")
+    
+    # just in case data folder does not exist, create it
+    if not os.path.exists(FOLDER_PATH):
+        os.mkdir(FOLDER_PATH)
+    
+    finished_downloads = 0
+    for file in files:
+        finished_downloads += save_file_from_cloud(file)
+    print(f"You successfully downloaded {finished_downloads} of the {len(files)} files.")

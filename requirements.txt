@@ -2,3 +2,5 @@ pandas
 requests
 matplotlib
 numpy
+gcsfs
+fsspec
