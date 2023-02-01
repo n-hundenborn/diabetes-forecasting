@@ -2,10 +2,11 @@
 
 
 import pandas as pd
-from io import StringIO, BytesIO, TextIOWrapper
+from io import BytesIO, TextIOWrapper
 from zipfile import ZipFile
 import urllib.request 
 import requests
+import wget
 
 
 ZIP_URL = "https://www.kaggle.com/datasets/cdc/behavioral-risk-factor-surveillance-system/download?datasetVersionNumber=1"
@@ -13,23 +14,31 @@ ZIP_ORDNER = "archive.zip"
 CSV_FILE = "2011.csv"
 
 
-resp = urllib.request.urlopen(ZIP_URL)
-# req = requests.get(ZIP_URL)
+wget.download(ZIP_URL)
+
+
+# r = requests.get(ZIP_URL)
+# print(r.content)
+# z = ZipFile(BytesIO(r.content))
+# z.extractall("/data")
+
+# resp = urllib.request.urlopen(ZIP_URL)
+# # req = requests.get(ZIP_URL)
 
 
 
-# reading and storing zip file content
-# zipfile = ZipFile(BytesIO(req.content))
+# # reading and storing zip file content
+# # zipfile = ZipFile(BytesIO(req.content))
 
-zipfile = ZipFile(BytesIO(resp.read()), "r")
+# zipfile = ZipFile(BytesIO(resp.read()), "r")
 
-directory = "\raw data"
-
-
-with zipfile as zip_ref:
-    zip_ref.extract(CSV_FILE,directory)
-pd.read_csv(directory + CSV_FILE)
+# directory = "\raw data"
 
 
-# data = TextIOWrapper(zipfile.open(CSV_FILE), encoding = "utf-8")
-# df = pd.read_csv(data)
+# with zipfile as zip_ref:
+#     zip_ref.extract(CSV_FILE,directory)
+# pd.read_csv(directory + CSV_FILE)
+
+
+# # data = TextIOWrapper(zipfile.open(CSV_FILE), encoding = "utf-8")
+# # df = pd.read_csv(data)
