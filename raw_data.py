@@ -30,7 +30,7 @@ def save_file_from_cloud(file):
 
 
 def save_all_files(files=files_to_load):
-    print(f"Get a coffee ;) \nDownloading and saving {len(files)} big files will take at least {2 * len(files)} minutes.")
+    print(f"Get a coffee ;) \nDownloading and saving {len(files)} big files will take between {2 * len(files)} and {4 * len(files)} minutes.")
     
     # just in case data folder does not exist, create it
     if not os.path.exists(FOLDER_PATH):
