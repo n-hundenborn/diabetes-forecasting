@@ -1,9 +1,12 @@
+# our custom gitignore additions
+data/
+Pipfile
+Pipfile.lock
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-Pipfile
-Pipfile.lock
 # C extensions
 *.so
 
