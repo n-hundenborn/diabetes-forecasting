@@ -24,7 +24,7 @@ def save_file_from_cloud(file):
     print(f"Downloading {file}. This can take some minutes...")
     df = pd.read_csv(GOOGLE_URL + file)
     print(f"Finished download. Writing to {file_path}... ")
-    df.to_csv(file_path)
+    df.to_csv(file_path, index=False)
     print(f"File was saved to {file_path}.")
     return 1
 
