@@ -29,6 +29,7 @@ def save_file_from_cloud(file):
     return 1
 
 
+# fetch and download elements from input list from the google cloud folder
 def save_all_files(files=files_to_load):
     print(f"Get a coffee ;) \nDownloading and saving {len(files)} big files will take between {2 * len(files)} and {4 * len(files)} minutes.")
     
@@ -40,3 +41,16 @@ def save_all_files(files=files_to_load):
     for file in files:
         finished_downloads += save_file_from_cloud(file)
     print(f"You successfully downloaded {finished_downloads} of the {len(files)} files.")
+
+
+# concats all csv files from the data folder to one dataframe and returns it (using an inner join on the df columns)
+def concat_df():
+    df_list = []
+    
+    for file in os.listdir('./data/'):
+        if file[-3:] != "csv":
+            continue
+        print(f"Reading file: {file}")
+        df_list.append(pd.read_csv(f"./data/{file}", index_col=False))
+    
+    return pd.concat(df_list, ignore_index=True, join="inner")
