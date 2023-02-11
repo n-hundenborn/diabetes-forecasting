@@ -54,7 +54,7 @@ def concat_df():
         print(f"Reading file: {file}")
         df_list.append(pd.read_csv(FOLDER_PATH + file, index_col=False))
     
-    return pd.concat(df_list, ignore_index=True, join="inner")
+    return pd.concat(df_list, axis=0, ignore_index=True)
 
 # concats all csv files from the data folder to one dataframe and returns it (using an inner join on the df columns)
 def concat_sampled_df(sample_size = 10000):
@@ -72,4 +72,4 @@ def concat_sampled_df(sample_size = 10000):
         df_sampled = pd.read_csv(file_path, index_col=False, skiprows=skip)
         df_list.append(df_sampled)
     
-    return pd.concat(df_list, ignore_index=True)
+    return pd.concat(df_list, axis=0, ignore_index=True)
