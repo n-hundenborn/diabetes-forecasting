@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import random
 
 FOLDER_PATH = "./data/"
 
@@ -53,4 +54,22 @@ def concat_df():
         print(f"Reading file: {file}")
         df_list.append(pd.read_csv(FOLDER_PATH + file, index_col=False))
     
-    return pd.concat(df_list, ignore_index=True, join="inner")
+    return pd.concat(df_list, axis=0, ignore_index=True)
+
+# concats all csv files from the data folder to one dataframe and returns it (using an inner join on the df columns)
+def concat_sampled_df(sample_size = 10000):
+    df_list = []
+    
+    for file in os.listdir(FOLDER_PATH):
+        if not file.endswith(".csv"):
+            continue
+
+        file_path = FOLDER_PATH + file
+        n = sum(1 for line in open(file_path)) - 1 #number of records in file (excludes header)
+        skip = sorted(random.sample(range(1,n+1),n-sample_size)) #the 0-indexed header will not be included in the skip list
+
+        print(f"Reading file: {file}")
+        df_sampled = pd.read_csv(file_path, index_col=False, skiprows=skip)
+        df_list.append(df_sampled)
+    
+    return pd.concat(df_list, axis=0, ignore_index=True)
