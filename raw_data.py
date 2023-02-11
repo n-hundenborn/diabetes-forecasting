@@ -48,7 +48,14 @@ def save_file_from_cloud(file):
         "DRNK3GE5",
         "INSULIN",
         "ASATTACK",
-        "_TOTINDA"
+        "_TOTINDA",
+        "_AGEG5YR",
+        "_LTASTH1",
+        "_BMI5CAT",
+        "_RFBMI5",
+        "_RFSMOK3",
+        "DRNKANY5",
+        "_RFBING5"
     ]]
 
     file = file[:-3] + "pkl"
