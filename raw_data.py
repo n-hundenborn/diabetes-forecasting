@@ -40,3 +40,15 @@ def save_all_files(files=files_to_load):
     for file in files:
         finished_downloads += save_file_from_cloud(file)
     print(f"You successfully downloaded {finished_downloads} of the {len(files)} files.")
+
+# loops through files in data folder and concats all contained csv files to one big dataframe
+def load_all_files():
+    df_list =  []
+    for file in os.listdir(FOLDER_PATH):
+        if not file.endswith(".csv"):
+            continue
+        
+        print("Reading in file " + file)
+        df_list.append(pd.read_csv(FOLDER_PATH + file))
+    
+    return pd.concat(df_list)
