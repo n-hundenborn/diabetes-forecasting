@@ -47,10 +47,10 @@ def save_all_files(files=files_to_load):
 def concat_df():
     df_list = []
     
-    for file in os.listdir('./data/'):
-        if file[-3:] != "csv":
+    for file in os.listdir(FOLDER_PATH):
+        if not file.endswith(".csv"):
             continue
         print(f"Reading file: {file}")
-        df_list.append(pd.read_csv(f"./data/{file}", index_col=False))
+        df_list.append(pd.read_csv(FOLDER_PATH + file, index_col=False))
     
     return pd.concat(df_list, ignore_index=True, join="inner")
