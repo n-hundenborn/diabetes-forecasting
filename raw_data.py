@@ -16,10 +16,14 @@ files_to_load = [
 
 
 def save_file_from_cloud(file):
-    
+    # in case you only have the pkl file but not the csv file
+    if os.path.exists(FOLDER_PATH + file[:-3] + "pkl"):
+        print("You already have this file's corresponding .pkl file. No need to download the .csv file again.")
+        return 0
+
     if os.path.exists(FOLDER_PATH + file):
         print("You already have this file. No need to download it again.")
-        if os.path.exists(FOLDER_PATH + file[:-3] +"pkl"):
+        if os.path.exists(FOLDER_PATH + file[:-3] + "pkl"):
             return 0
         else:
             print(f"Reading {file}. This can take some time...")
