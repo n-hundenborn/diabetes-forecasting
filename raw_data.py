@@ -14,6 +14,30 @@ files_to_load = [
     "2015.csv"
 ]
 
+feature_list = [
+    "DIABETE3",
+    "SEX",
+    "_AGEG5YR",
+    "EDUCA",
+    "_BMI5",
+    "_BMI5CAT",
+    "GENHLTH",
+    "PHYSHLTH",
+    "_TOTINDA",
+    "EXERANY2",
+    "SMOKE100",
+    "SMOKDAY2",
+    "_RFSMOK3",
+    "DRNKANY5",
+    "ALCDAY5",
+    "AVEDRNK2",
+    "DRNK3GE5",
+    "_RFBING5",
+    "CVDSTRK3",
+    "CVDINFR4",
+    "CVDCRHD4"
+]
+
 
 def save_file_from_cloud(file):
     # in case you only have the pkl file but not the csv file
@@ -33,34 +57,7 @@ def save_file_from_cloud(file):
         df = pd.read_csv(GOOGLE_URL + file)
         print(f"Finished download. Selecting columns.")
 
-    df = df[[
-        "DIABETE3",
-        "SMOKE100",
-        "PREGNANT",
-        "_BMI5",
-        "SMOKDAY2",
-        "CVDSTRK3",
-        "PHYSHLTH",
-        "SEX",
-        "GENHLTH",
-        "CVDINFR4",
-        "CVDCRHD4",
-        "ASTHMA3",
-        "STOPSMK2",
-        "ALCDAY5",
-        "AVEDRNK2",
-        "DRNK3GE5",
-        "INSULIN",
-        "ASATTACK",
-        "_TOTINDA",
-        "_AGEG5YR",
-        "_LTASTH1",
-        "_BMI5CAT",
-        "_RFBMI5",
-        "_RFSMOK3",
-        "DRNKANY5",
-        "_RFBING5"
-    ]]
+    df = df[feature_list]
 
     file = file[:-3] + "pkl"
     print(f"Writing to {FOLDER_PATH + file}...")
