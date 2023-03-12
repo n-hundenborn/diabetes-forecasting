@@ -22,5 +22,5 @@ To install pipenv open the terminal (either integrated VS Code or OS-specific) a
 To install all python dependencies defined in _requirements.txt_ run:
 
     pipenv install -r requirements.txt
-and select the newly created environment (something like: _diabetes_forecasting-_...) if necessary on the top right corner of VS Code.
+and select the newly created environment (something like: _diabetes_forecasting-_...), if necessary on the top right corner of VS Code.
 When you first run a jupyter notebook cell in a new python environment, click install in the popup that opens.
