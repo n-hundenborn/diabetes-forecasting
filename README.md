@@ -1,9 +1,9 @@
 # diabetes-forecasting
-Techlabs project about forecasting diabetes using data science &amp; machine learning models.
+Techlabs project about forecasting diabetes using &amp; machine learning models.
 
 ## Getting started
 Make sure the following is installed and working properly on your system:
-- a code editor/IDE of your choice e.g. Visual Studio Code
+- code editor/IDE of your choice, e.g. Visual Studio Code
 - Python
 - pip (Python package manager)
 - git
@@ -15,7 +15,7 @@ After setting up your github credentials open the terminal in the desired folder
 
 
 ### Manage your python environment
-To install all necessary python packages you can use either `pip` or `pipenv`.
+To install all necessary python packages you can use `pip` or `pipenv`.
 
 To install pipenv open the terminal (either integrated VS Code or OS-specific) and enter `pip install pipenv`.
 
