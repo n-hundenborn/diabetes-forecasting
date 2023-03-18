@@ -6,3 +6,4 @@ fsspec
 seaborn
 scikit-learn
 tqdm
+ipykernel
