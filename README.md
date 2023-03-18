@@ -1,9 +1,9 @@
 # diabetes-forecasting
-Techlabs project about forecasting diabetes using data science &amp; machine learning models.
+Techlabs project about forecasting diabetes using &amp; machine learning models.
 
 ## Getting started
 Make sure the following is installed and working properly on your system:
-- a code editor/IDE of your choice e.g. Visual Studio Code
+- code editor/IDE of your choice, e.g. Visual Studio Code
 - Python
 - pip (Python package manager)
 
@@ -14,7 +14,7 @@ After setting up your github credentials open the terminal in the desired folder
 
 
 ### Manage your python environment
-To install all necessary python packages you can use either `pip` or `pipenv`.
+To install all necessary python packages you can use `pip` or `pipenv`.
 
 To install pipenv open the terminal (either integrated VS Code or OS-specific) and enter `pip install pipenv`.
 
@@ -41,4 +41,4 @@ You can find the main content of our project in the Jupyter-Notebook called _dev
     c. do an action recommendation based on prediction
 
 ## Note
-Training some models can take more than 60 Minutes. If you don't want to train the models all over again, you can skip cells from chapter 4 and continue by using the saved models files from the models folder.
+Training some models can take more than 60 Minutes. If you don't want to train the models all over again you can skip cells from chapter 4 and continue by using the saved models files from the models folder.
