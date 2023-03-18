@@ -25,7 +25,7 @@ and select the newly created environment (something like: _diabetes_forecasting-
 When you first run a jupyter notebook cell in a new python environment, click install in the popup that opens.
 
 ## Project Structure
-You can find the main content of our project in the Jupyter-Notebook called _dev_model_training.ipynb_. The notebook has the following base structure:
+You can find the main content of our project in the Jupyter-Notebook called _diabetes_classification.ipynb_. The notebook has the following base structure:
 
 1. Importing packages
 2. Data Loading (for implementations, see _raw_data.py_)
@@ -41,4 +41,4 @@ You can find the main content of our project in the Jupyter-Notebook called _dev
     c. do an action recommendation based on prediction
 
 ## Note
-Training some models can take more than 60 Minutes. If you don't want to train the models all over again you can skip cells from chapter 4 and continue by using the saved models files from the models folder.
+Training some models can take more than 60 Minutes. If you don't want to train the models all over again you can skip cells from chapter 4 and continue by using the saved models files from the models folder and retrain using the saved parameters.
